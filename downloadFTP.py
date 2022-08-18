@@ -4,14 +4,18 @@
 import ftplib
 from datetime import datetime
 
+vhost = ""
+vuser = ""
+vpass = "" 
+
 def grabFile(filename):
   localfile = open(filename, 'wb')
   ftp.retrbinary('RETR ' + filename, localfile.write, 1024)
   localfile.close()
 
 
-ftp = ftplib.FTP("72.167.38.171")
-ftp.login("crisol@alephimprime.com", "8?oBzYnnDK,5")
+ftp = ftplib.FTP(vhost)
+ftp.login(vuser, vpass)
 
 data = []
 fecha = datetime.now().strftime('%Y%m%d')
